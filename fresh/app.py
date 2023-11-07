@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-registrants = {}
+REGISTRANTS = {}
 
 
 @app.route("/")
