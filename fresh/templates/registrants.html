@@ -3,5 +3,7 @@
 {% block body %}
 
     <ul>
-        <li>{{ name }}: {{ sport }}</li>
+        {% for name in registrants %}
+            <li>{{ name }}</li>
+        {% endfor %}
     </ul>
