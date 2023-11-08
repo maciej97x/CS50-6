@@ -18,6 +18,6 @@ def register():
 
 
 
-@app.rouute("/registrants")
+@app.route("/registrants")
 def registrants():
     return render_template("registrants.html", registrants=registrants)
