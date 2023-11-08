@@ -7,11 +7,15 @@ app = Flask(__name__)
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 @app.route("/")
 def index ():
-    return render_template("index.html", sports=SPORTS)
+    if not session.get("name"):
+        rerurn redirect("/login")
+    return render_template("index.html")
+
 
 @app.route("/register", methods=["POST"])
 def register():
