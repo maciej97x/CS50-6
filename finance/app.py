@@ -135,7 +135,12 @@ def register():
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
-        session["user_id"] = rows
+        session["user_id"] = rows[0]["id"]
+
+        rerurn redirect("/")
+
+    else:
+        return render_template("register.html")
 
 
 
