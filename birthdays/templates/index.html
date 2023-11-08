@@ -36,7 +36,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        ()
+                        {% for row in rows %}
+                        <tr>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.month }}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
