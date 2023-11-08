@@ -131,7 +131,11 @@ def register():
         if len(rows) != 0:
             return apology("username already exists", 400)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?),
-                   request.form.get("username"), generate_password_hash(request.form.get("username"))
+                   request.form.get("username"), generate_password_hash(request.form.get("password"))
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        session["user_id"] = rows
 
 
 
