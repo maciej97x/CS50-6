@@ -1,3 +1,5 @@
+<!-- 'Quote' Page -->
+
 {% extends "layout.html" %}
 
 {% block title %}
@@ -5,12 +7,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Quote</h1>
     <form action="/quote" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
+            <label class="mb-3 fw-bold" for="quote">Search for Stock Value</label>
+            <input class="form-control mx-auto w-auto mb-3" id="symbol" name="symbol" placeholder="Example: AMD" minlength=1 required>
+            <button class="btn btn-primary btn-sm" type="submit">Quote</button>
         </div>
-
-        <button class="btn btn-primary" type="submit">Quote</button>
     </form>
 {% endblock %}
