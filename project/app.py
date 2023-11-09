@@ -125,7 +125,7 @@ def register():
         hash = generate_password_hash(password)
 
         try:
-            db.execute("INSERT INTO users")
+            db.execute("INSERT INTO users (username. hash) VALUES (?, ?)", email, hash)
 
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
