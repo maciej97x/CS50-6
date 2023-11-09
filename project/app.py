@@ -126,6 +126,9 @@ def register():
 
         try:
             db.execute("INSERT INTO users (username. hash) VALUES (?, ?)", email, hash)
+        except:
+            return apology("Username Already Taken")
+        
 
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
