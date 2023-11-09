@@ -34,9 +34,11 @@ textarea{
     justify-content: space-between;
     align-items:
 }
+
 .view-email{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items:
+    
 }
