@@ -42,7 +42,26 @@ def index():
 @login_required
 def compose():
     """Write an email to someone"""
-    return apology("TODO")
+    if request.method == "GET":
+        userId = session["user_id"]
+        senderDB = db.execute("Select username FROM users WHERE id = ?", userId)
+        sender = senderDB[0]["username"]
+        return render_template("compose.html", sender=sender)
+
+    else:
+        sender = request.form.get("sender")
+        recipient = request.form.get("recipient")
+        subject = request.form.get("subject")
+        body = request.form.get("body")
+
+        if not sender or not recipient or not subcjet or not body:
+            return apology("No Empty Fields")
+
+        db.execute("INSERT INTO emails (sender, recipient, subject, body) VALUES (?, ?, ?, ?)", sender, recipient, subcjet, body)
+
+        return redirect("/sent")
+
+
 
 
 @app.route("/sent")
