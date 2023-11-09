@@ -68,7 +68,7 @@ def compose():
 @login_required
 def sent():
     """Show sent emails"""
-    userId = sesion["user_id"]
+    userId = session["user_id"]
     usernameDB = db.execute("SELECT username FROM users WHERE id = ?", userId)
     username = usernameDB[0]["username"]
     emails = db.execute("SELECT * FROM emails WHERE sender = ?", username)
