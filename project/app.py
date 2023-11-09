@@ -67,9 +67,12 @@ def compose():
 @app.route("/sent")
 @login_required
 def sent():
-    """Show history of transactions"""
-    return apology("TODO")
-
+    """Show sent emails"""
+    userId = sesion["user_id"]
+    usernameDB = db.execute("SELECT username FROM users WHERE id = ?", userId)
+    username = usernameDB[0]["username"]
+    emails = db.execute("SELECT * FROM emails WHERE sender = ?", username)
+    return jsonify(emails)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
