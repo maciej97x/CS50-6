@@ -1,22 +1,17 @@
-{% extends "layout.html" %} {% block title %} Add cash {% endblock %} {% block
-    main %}
-    <h1 class="text-center mb-5">Add cash</h1>
+{% extends "layout.html" %}
 
-    <div class="d-flex justify-content-center">
-      <form action="/add_cash" method="post">
-        <div class="input-group mb-3">
-          <span class="input-group-text">$</span>
-          <input
-            autocomplete="off"
-            autofocus
-            class="form-control"
-            id="cash"
-            name="cash"
-            placeholder="How much cash to add"
-            type="text"
-          />
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+    <h1>Add Cash</h1>
+    <form action="/add_cash" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="new_cash" placeholder="Add Some Cash" type="int">
         </div>
-        <button class="btn btn-primary" type="submit">Confirm</button>
-      </form>
-    </div>
-    {% endblock %}
+
+
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}
