@@ -114,7 +114,15 @@ def register():
     else:
         email = request.form.get("email")
         password = request.form.get("password")
-        confirm = request.fo.get("confirm")
+        confirm = request.form.get("confirm")
+
+        if not email or not password or not confirm:
+            return apology("No Empty Fields")
+
+        if password != confirm:
+            return apology("Passwords Do not Match")
+
+        hash = generate_password_hash(password)
 
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
