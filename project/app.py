@@ -54,10 +54,10 @@ def compose():
         subject = request.form.get("subject")
         body = request.form.get("body")
 
-        if not sender or not recipient or not subcjet or not body:
+        if not sender or not recipient or not subject or not body:
             return apology("No Empty Fields")
 
-        db.execute("INSERT INTO emails (sender, recipient, subject, body) VALUES (?, ?, ?, ?)", sender, recipient, subcjet, body)
+        db.execute("INSERT INTO emails (sender, recipient, subject, body) VALUES (?, ?, ?, ?)", sender, recipient, subject, body)
 
         return redirect("/sent")
 
