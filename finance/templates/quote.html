@@ -1,16 +1,20 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Quote
+    quote
 {% endblock %}
 
 {% block main %}
-    <h1>Quote</h1>
     <form action="/quote" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
-        </div>
-
-        <button class="btn btn-primary" type="submit">Quote</button>
+        {% if not quoted %}
+            <div class="mb-3">
+                <input autocomplete="off" required autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Quote</button>
+        {% else %}
+            <div class="mb-3">
+                <p>A share of {{quoted.name}} ({{quoted.symbol}}) costs {{ quoted.price | usd }}!</p>
+            </div>
+        {% endif %}
     </form>
 {% endblock %}
