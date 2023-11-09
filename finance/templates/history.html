@@ -1,36 +1,32 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Account History
+    History
 {% endblock %}
 
 {% block main %}
-<h4>Account History</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Transaction Id</th>
-      <th scope="col">Date</th>
-      <th scope="col">Transaction Type</th>
-      <th scope="col">Symbol</th>
-      <th scope="col">Number of Shares</th>
-      <th scope="col">Price Per Share</th>
-      <th scope="col">Transaction Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in history %}
-    <tr>
-      <td>{{ item["transaction_id"] }}</td>
-      <td>{{ item["date"] }}</td>
-      <td>{{ item["type"] }}</td>
-      <td>{{ item["symbol"] }}</td>
-      <td>{{ item["shares"] }} </td>
-      <td>${{ item["PPS"] }} </td>
-      <td>${{ item["Total_Amount"] }} </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Method</th>
+                <th scope="col">Price</th>
+                <th scope="col">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{row['symbol']}}</td>
+                    <td>{{row['shares']}}</td>
+                    <td>{{row['method']}}</td>
+                    <td>{{row['price']}}</td>
+                    <td>{{row['transacted']}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 
 {% endblock %}
