@@ -10,7 +10,7 @@
         <div class="list-group-item">
             <h6>Sender: {{ email.sender }}</h6>
             <h2>{{ email.subject }}</h2>
-            <p>{{ email.id }}</p>
+            <p>{{ email.timestamp }}</p>
             <form action="email" method="post">
                 <input type="hidden" name="emailId" value="{{ email.id }}">
                 <input type="submit" class="btn btn-info" value="View Email">
