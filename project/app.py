@@ -111,6 +111,8 @@ def register():
     """Register user"""
     if request.method == "GET":
         return render_template("register.html")
+    else:
+        
 
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
