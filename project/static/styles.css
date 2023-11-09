@@ -40,5 +40,12 @@ textarea{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    width: 300px;
+}
 
+.center-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
