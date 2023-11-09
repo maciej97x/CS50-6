@@ -124,6 +124,9 @@ def register():
 
         hash = generate_password_hash(password)
 
+        try:
+            db.execute("INSERT INTO users")
+
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
 def reply():
