@@ -32,13 +32,13 @@ textarea{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:
+    align-items: center;
 }
 
 .view-email{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:
-    
+    align-items: center;
+
 }
