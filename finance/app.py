@@ -62,14 +62,15 @@ def index():
         # Update cash value
         cash = user_row[0]["cash"]
 
-    return render_template("index.html", transactions=trans, cash=cash, total=total)
+    return render_template("index.html", transactions=trans,
+                           cash=cash, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
-    if request.method == "POST":\n
+    if request.method == "POST":
 
         # Check Symbol
         symbol = request.form.get("symbol")
