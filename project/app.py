@@ -167,4 +167,8 @@ def register():
 @login_required
 def reply():
     """Reply the email on email detail view"""
-    return apology("TODO")
+    if request.method == "POST":
+        emailId = request.form.get("emailId")
+        emailDetailDB = db.execute("SELECT * FROM emails WHERE id = ?", emailId)
+        emailDetail = emailDetailDB[0]
+        return render_template("reply.html", emailDetail=emailDetail)
