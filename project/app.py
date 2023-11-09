@@ -73,6 +73,8 @@ def sent():
     emails = db.execute("SELECT * FROM emails WHERE sender = ?", username)
     return jsonify(emails)
 
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
