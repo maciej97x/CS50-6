@@ -101,7 +101,7 @@ def logout():
 
 @app.route("/email", methods=["GET", "POST"])
 @login_required
-def quote():
+def email():
     """View email details"""
     return apology("TODO")
 
@@ -109,8 +109,8 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    return apology("TODO")
-
+    if request.method == "GET":
+        return render_template("register.html")
 
 @app.route("/reply", methods=["GET", "POST"])
 @login_required
