@@ -133,8 +133,8 @@ def email():
     """View email details"""
     if request.method == "POST":
         emailId = request.form.get("emailId")
-        emailDetail = db.execute("SELECT * FROM emails WHERE id = ?)". emailId)
-        return render_template("email.html, emailDetail=emailDetail)
+        emailDetail = db.execute("SELECT * FROM emails WHERE id = ?)", emailId)
+        return render_template("email.html", emailDetail=emailDetail)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
