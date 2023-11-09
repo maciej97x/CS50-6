@@ -63,7 +63,6 @@ def compose():
 
 
 
-
 @app.route("/sent")
 @login_required
 def sent():
